@@ -123,3 +123,6 @@ class PokemonFactory:
             hp = math.floor(hp_percentage * max_hp)
             new_pokemon.current_hp = hp if hp > 0 else 1
             return new_pokemon
+
+    def create_basic(self, name: str) -> Pokemon:
+        return self.create(name, 100, StatusEffect.NONE, 1)
