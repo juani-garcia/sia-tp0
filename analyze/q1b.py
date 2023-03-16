@@ -1,8 +1,9 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
 from src.catching import attempt_catch
 from src.pokemon import PokemonFactory
 from src.util import key_list
-import pandas as pd
-import matplotlib.pyplot as plt
 
 SIMS = 10000
 COMPARE_TO = "POKEBALL"
@@ -26,7 +27,7 @@ def simulate() -> dict:
     return ans
 
 
-def graph(base_name="figs/q2a"):
+def graph(base_name="figs/q1b"):
     ans = simulate()
     for pokemon_name in key_list("pokemon.json"):
         series = pd.Series(ans[pokemon_name.upper()])
