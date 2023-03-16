@@ -1,10 +1,14 @@
-from src.catching import attempt_catch
-from src.pokemon import PokemonFactory, StatusEffect
+from analyze import q1a
+from analyze import q1b
+from analyze import q2a
+from analyze import q2b
+import os
 
 
 if __name__ == "__main__":
-    factory = PokemonFactory("pokemon.json")
-    snorlax = factory.create("snorlax", 100, StatusEffect.NONE, 1)
-    print("No noise: ", attempt_catch(snorlax, "heavyball"))
-    for _ in range(10):
-        print("Noisy: ", attempt_catch(snorlax, "heavyball", 0.15))
+    if not os.path.exists("figs/"):
+        os.mkdir('figs/')
+    q1a.graph()
+    q1b.graph()
+    q2a.graph()
+    q2b.graph()
