@@ -23,7 +23,8 @@ def simulate():
     return ans
 
 
-def graph(ans, base_name="figs/q2a"):
+def graph(base_name="figs/q2a"):
+    ans = simulate()
     for k, v in ans.items():
         series = pd.Series(v)
         ax = series.plot(kind='bar', figsize=(8, 6), rot=0)
