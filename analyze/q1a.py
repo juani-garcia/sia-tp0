@@ -24,7 +24,8 @@ def simulate() -> dict:
     return ans
 
 
-def graph(ans, base_name="figs/q1a"):
+def graph(base_name="figs/q1a"):
+    ans = simulate()
     for pokeball_name in key_list("pokeball.json"):
         series = pd.Series(ans[pokeball_name])
         ax = series.plot(kind='bar', figsize=(8, 6), rot=0)
