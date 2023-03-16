@@ -2,6 +2,7 @@ from analyze import q1a
 from analyze import q1b
 from analyze import q2a
 from analyze import q2b
+from analyze import q2e
 import os
 
 
@@ -12,3 +13,4 @@ if __name__ == "__main__":
     q1b.graph()
     q2a.graph()
     q2b.graph()
+    q2e.graph()

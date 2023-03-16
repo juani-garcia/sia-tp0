@@ -12,23 +12,23 @@ def simulate() -> dict:
     ans = {}
     for pokemon_name in key_list("pokemon.json"):
         ans[pokemon_name.upper()] = {
-            'hp': [],
+            'lvl': [],
             'catch_rate': []
         }
-        for hp in range(0, 101, 10):
-            pokemon = factory.create(pokemon_name, 100, StatusEffect.NONE, hp / 100.0)
-            ans[pokemon.name.upper()]['hp'].append(hp)
-            ans[pokemon.name.upper()]['catch_rate'].append(round(attempt_catch(pokemon, POKEBALL)[1], 2))
+        for lvl in range(0, 101, 10):
+            pokemon = factory.create(pokemon_name, lvl, StatusEffect.NONE, 1)
+            ans[pokemon.name.upper()]['lvl'].append(lvl)
+            ans[pokemon.name.upper()]['catch_rate'].append(attempt_catch(pokemon, POKEBALL)[1])
     return ans
 
 
-def graph(base_name="figs/q2b"):
+def graph(base_name="figs/q2e"):
     ans = simulate()
+    print(ans)
     for pokemon_name in key_list("pokemon.json"):
         df = pd.DataFrame(ans[pokemon_name.upper()])
-        plt.plot(df['hp'], df['catch_rate'])
+        plt.plot(df['lvl'], df['catch_rate'], '-o')
         plt.title(f"{pokemon_name.upper()} (using {POKEBALL})")
-        plt.xlabel('HP (%)')
-        plt.ylabel('Catch rate')
+        plt.xlabel('Level')
         plt.savefig(base_name + '_' + pokemon_name + '.png')
         plt.cla()
