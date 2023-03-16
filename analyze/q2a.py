@@ -30,6 +30,6 @@ def graph(base_name="figs/q2a"):
         ax = series.plot(kind='bar', figsize=(8, 6), rot=0)
         ax.set_xlabel('Status Effect')
         ax.set_ylabel('Average catch rate')
-        ax.set_title(k + "catch rate with different status effects")
+        ax.set_title(k + " catch rate with different status effects")
         plt.savefig(base_name + "_" + k + '.png')
         ax.cla()
